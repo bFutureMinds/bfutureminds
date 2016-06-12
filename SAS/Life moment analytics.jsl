@@ -1,0 +1,21 @@
+
+Partition(
+	Y( :Life moment txn ),
+	X( :Age, :Income, :Family, :CCAvg, :Education, :Mortgage, :CD_Account ),
+	Validation( :Training 0 validation 1 ),
+	Minimum Size Split( 50 ),
+	Show Split Prob( 1 ),
+	Show Split Count( 1 ),
+	Sort Split Candidates( 1 ),
+	Split History( 1 ),
+	Show Fit Details( 1 ),
+	Informative Missing( 1 ),
+	ROC Curve( 1 ),
+	Lift Curve( 1 ),
+	Initial Splits(
+		:Income < 99,
+		{:CCAvg < 3, {}, {:Income < 83}},
+		{:Education == {1}, {:Family < 3, {:Income >= 112}}, {:Income < 118, {:CCAvg
+		 < 2.4}}}
+	)
+);
